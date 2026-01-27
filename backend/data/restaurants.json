@@ -1,0 +1,14 @@
+[
+    { "id": "r1", "name": "Warteg Kharisma Bahari", "rating": 4.6, "type": "Budget" },
+    { "id": "r2", "name": "Pagi Sore Padang", "rating": 4.9, "type": "Premium" },
+    { "id": "r3", "name": "Sate Khas Senayan", "rating": 4.7, "type": "Indonesian" },
+    { "id": "r4", "name": "Soto Betawi H. Ma'ruf", "rating": 4.5, "type": "Local Legend" },
+    { "id": "r5", "name": "Bakso Boedjangan", "rating": 4.4, "type": "Casual" },
+    { "id": "r6", "name": "Martabak Orins", "rating": 4.8, "type": "Dessert" },
+    { "id": "r7", "name": "Nasi Goreng Kambing", "rating": 4.7, "type": "Street Food" },
+    { "id": "r8", "name": "Dapur Sunda Teh Iis", "rating": 4.3, "type": "Family" },
+    { "id": "r9", "name": "Kopi Janji Jiwa", "rating": 4.5, "type": "Coffee Chain" },
+    { "id": "r10", "name": "Bebek Kaleyo", "rating": 4.6, "type": "Specialty" },
+    { "id": "r11", "name": "Senopati Roastery", "rating": 4.9, "type": "Specialty Coffee" },
+    { "id": "r12", "name": "Segar Abadi Juice", "rating": 4.6, "type": "Healthy/Drinks" }
+]
