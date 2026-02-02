@@ -1,53 +1,110 @@
 <?php
 require_once '../utils.php';
 
+// Load Input & Files
 $input = json_decode(file_get_contents('php://input'), true);
-$message = strtolower($input['message'] ?? '');
+$action = $input['action'] ?? '';
+$chatFile = '../data/chat.json';
+$foodFile = '../data/foods.json';
+$orderFile = '../data/orders.json';
 
-$response = [
-    'text' => '',
-    'action' => 'recommend', 
-    'query' => ''
-];
-
-// --- INTENT RECOGNITION ---
-
-if (strpos($message, 'sweet') !== false || strpos($message, 'dessert') !== false || strpos($message, 'martabak') !== false) {
-    $response['text'] = "I've curated the top 3 Desserts & Sweets for you.";
-    $response['query'] = 'sweet dessert martabak pisang';
-} 
-elseif (strpos($message, 'padang') !== false || strpos($message, 'rendang') !== false) {
-    $response['text'] = "Showing the best Padang & Beef options.";
-    $response['query'] = 'rendang padang dendeng';
-} 
-elseif (strpos($message, 'duck') !== false || strpos($message, 'bebek') !== false) {
-    $response['text'] = "Here are the top Duck (Bebek) dishes, ranked by rating.";
-    $response['query'] = 'bebek duck';
-} 
-elseif (strpos($message, 'chicken') !== false || strpos($message, 'ayam') !== false) {
-    $response['text'] = "Comparing ratings for Chicken dishes...";
-    $response['query'] = 'ayam chicken';
-} 
-elseif (strpos($message, 'soup') !== false || strpos($message, 'soto') !== false || strpos($message, 'kuah') !== false || strpos($message, 'bakso') !== false) {
-    $response['text'] = "Finding comfort food: Soups, Soto & Bakso.";
-    $response['query'] = 'soto bakso soup sayur kuah';
-} 
-elseif (strpos($message, 'coffee') !== false || strpos($message, 'kopi') !== false || strpos($message, 'drink') !== false) {
-    $response['text'] = "Here are the best Coffee & Drinks.";
-    $response['query'] = 'kopi teh es drink';
-} 
-elseif (strpos($message, 'cheap') !== false || strpos($message, 'budget') !== false || strpos($message, 'hemat') !== false) {
-    $response['text'] = "Hunting for value. Top 3 Deals under 20k.";
-    $response['query'] = 'cheap';
-} 
-elseif (strpos($message, 'spicy') !== false || strpos($message, 'pedas') !== false) {
-    $response['text'] = "Warning: Hot & Spicy options selected.";
-    $response['query'] = 'spicy pedas sambal geprek';
-} 
-else {
-    $response['text'] = "Here are the Chef's Top Recommendations across all categories.";
-    $response['query'] = 'all';
+// 1. POLL MESSAGES
+if ($action === 'poll') {
+    $chats = readJson($chatFile);
+    jsonResponse(['messages' => $chats]);
 }
 
-jsonResponse($response);
+// 2. SEND TEXT (WITH GHOST AI LOGIC)
+if ($action === 'send_text') {
+    $chats = readJson($chatFile);
+    
+    // A. Save the Actual Message
+    $chats[] = [
+        'type' => 'text',
+        'sender' => $input['sender'],
+        'text' => $input['text'],
+        'time' => date('H:i')
+    ];
+
+    // B. AI ANALYSIS (Only runs if Buyer sends message)
+    if ($input['sender'] === 'buyer') {
+        $foods = readJson($foodFile);
+        $query = strtolower($input['text']);
+        $matches = [];
+
+        // Scan database for keywords
+        foreach ($foods as $food) {
+            $tags = strtolower($food['tags'] . ' ' . $food['category'] . ' ' . $food['name']);
+            if (strpos($tags, $query) !== false) {
+                $matches[] = $food;
+            }
+        }
+
+        // If matches found, save a "Ghost Hint" (Type: ai_hint)
+        if (count($matches) > 0) {
+            shuffle($matches);
+            $top = array_slice($matches, 0, 3);
+            
+            $chats[] = [
+                'type' => 'ai_hint',    // Special type
+                'sender' => 'system',
+                'matches' => $top,      // Contains raw data for Seller buttons
+                'trigger' => $input['text'],
+                'time' => date('H:i')
+            ];
+        }
+    }
+
+    writeJson($chatFile, $chats);
+    jsonResponse(['success' => true]);
+}
+
+// 3. SELLER MANUALLY PUSHES CARD
+// (This is triggered when Seller clicks a Ghost Hint button)
+if ($action === 'send_card') {
+    $chats = readJson($chatFile);
+    $chats[] = [
+        'type' => 'card', 
+        'sender' => 'seller',
+        'foodName' => $input['foodName'], 
+        'price' => $input['price'],
+        'desc' => $input['desc'], 
+        'store' => 'Concierge Pick',
+        'time' => date('H:i')
+    ];
+    writeJson($chatFile, $chats);
+    jsonResponse(['success' => true]);
+}
+
+// 4. GET MENU
+if ($action === 'get_menu') {
+    $foods = readJson($foodFile);
+    jsonResponse(['menu' => $foods]);
+}
+
+// 5. PLACE ORDER
+if ($action === 'place_order') {
+    $orders = readJson($orderFile);
+    $id = 'ORD-' . strtoupper(substr(uniqid(), -5));
+    
+    $orders[] = [
+        'id' => $id, 
+        'items' => $input['items'], 
+        'total' => $input['total'], 
+        'time' => date('Y-m-d H:i')
+    ];
+    writeJson($orderFile, $orders);
+
+    // Notify Chat
+    $chats = readJson($chatFile);
+    $chats[] = [
+        'type' => 'system', 
+        'sender' => 'system', 
+        'text' => "🚀 ORDER PAID ($id) - Rp " . number_format($input['total']), 
+        'time' => date('H:i')
+    ];
+    writeJson($chatFile, $chats);
+
+    jsonResponse(['success' => true]);
+}
 ?>

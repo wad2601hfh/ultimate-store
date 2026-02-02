@@ -1,96 +1,132 @@
 [
     {
-        "id": "ord_697829a51e2b7",
-        "foodId": "f1",
-        "foodName": "Nasi Padang Rendang",
-        "price": 25000,
-        "createdAt": "2026-01-27 02:57:41",
-        "status": "confirmed"
+        "id": "SMART-000EB",
+        "items": [
+            {
+                "name": "Mentai Salmon Rice",
+                "price": 45000
+            },
+            {
+                "name": "Mentai Salmon Rice",
+                "price": 45000
+            },
+            {
+                "name": "Mentai Salmon Rice",
+                "price": 45000
+            }
+        ],
+        "total": 135000,
+        "time": "2026-02-02 13:28"
     },
     {
-        "id": "ord_697829b3c6f4b",
-        "foodId": "f1",
-        "foodName": "Nasi Padang Rendang",
-        "price": 25000,
-        "createdAt": "2026-01-27 02:57:55",
-        "status": "confirmed"
+        "id": "ORD-DA186",
+        "items": [
+            {
+                "name": "Cold Brew Coffee",
+                "price": 35000
+            },
+            {
+                "name": "Cold Brew Coffee",
+                "price": 35000
+            },
+            {
+                "name": "Cold Brew Coffee",
+                "price": 35000
+            }
+        ],
+        "total": 105000,
+        "time": "2026-02-02 13:35"
     },
     {
-        "id": "ord_697829b5656a7",
-        "foodId": "f2",
-        "foodName": "Ayam Goreng Paket",
-        "price": 15000,
-        "createdAt": "2026-01-27 02:57:57",
-        "status": "confirmed"
+        "id": "ORD-86A94",
+        "items": [
+            {
+                "name": "Fluffy Pancakes",
+                "price": 45000
+            },
+            {
+                "name": "Fluffy Pancakes",
+                "price": 45000
+            },
+            {
+                "name": "Fluffy Pancakes",
+                "price": 45000
+            },
+            {
+                "name": "Fluffy Pancakes",
+                "price": 45000
+            }
+        ],
+        "total": 180000,
+        "time": "2026-02-02 13:37"
     },
     {
-        "id": "ord_69782d639b0a5",
-        "foodId": "f4",
-        "foodName": "Es Teh Manis",
-        "price": 5000,
-        "timestamp": 1769483619
+        "id": "ORD-58839",
+        "items": [
+            {
+                "name": "Nasi Goreng Special",
+                "price": 28000
+            },
+            {
+                "name": "Nasi Goreng Special",
+                "price": 28000
+            },
+            {
+                "name": "Nasi Goreng Special",
+                "price": 28000
+            }
+        ],
+        "total": 84000,
+        "time": "2026-02-02 13:41"
     },
     {
-        "id": "ord_69782e6a90dd7",
-        "foodId": "f1",
-        "foodName": "Nasi Rendang Sapi",
-        "price": 38000,
-        "timestamp": 1769483882
+        "id": "ORD-A8278",
+        "items": [
+            {
+                "name": "Iced Matcha Latte",
+                "price": 28000
+            },
+            {
+                "name": "Iced Matcha Latte",
+                "price": 28000
+            },
+            {
+                "name": "Fresh Lemonade",
+                "price": 25000
+            },
+            {
+                "name": "Fresh Lemonade",
+                "price": 25000
+            }
+        ],
+        "total": 106000,
+        "time": "2026-02-02 13:44"
     },
     {
-        "id": "ord_69782e6fd9de9",
-        "foodId": "f2",
-        "foodName": "Ayam Pop",
-        "price": 29000,
-        "timestamp": 1769483887
-    },
-    {
-        "id": "ord_69782f1826bf5",
-        "foodId": "f1",
-        "foodName": "Nasi Rendang Sapi",
-        "price": 38000,
-        "timestamp": 1769484056
-    },
-    {
-        "id": "ord_69782fa3ccbca",
-        "foodId": "f2",
-        "foodName": "Ayam Pop",
-        "price": 29000,
-        "timestamp": 1769484195
-    },
-    {
-        "id": "ord_69782faa70a9f",
-        "foodId": "f23",
-        "foodName": "Bebek Bakar",
-        "price": 38000,
-        "timestamp": 1769484202
-    },
-    {
-        "id": "ord_697832bab5b37",
-        "foodId": "f28",
-        "foodName": "Pisang Bakar Coklat Keju",
-        "price": 20000,
-        "date": "2026-01-27 03:36:26"
-    },
-    {
-        "id": "ord_697832c08ff27",
-        "foodId": "f14",
-        "foodName": "Martabak Manis Coklat Keju",
-        "price": 65000,
-        "date": "2026-01-27 03:36:32"
-    },
-    {
-        "id": "ord_69783309b2c4e",
-        "foodId": "f1",
-        "foodName": "Nasi Rendang Sapi",
-        "price": 38000,
-        "date": "2026-01-27 03:37:45"
-    },
-    {
-        "id": "ord_697838736aa09",
-        "foodId": "f3",
-        "foodName": "Dendeng Balado",
-        "price": 35000,
-        "date": "2026-01-27 04:00:51"
+        "id": "ORD-03526",
+        "items": [
+            {
+                "name": "Salmon Mentai Rice",
+                "price": 45000
+            },
+            {
+                "name": "Salmon Mentai Rice",
+                "price": 45000
+            },
+            {
+                "name": "Salmon Mentai Rice",
+                "price": 45000
+            },
+            {
+                "name": "Salmon Mentai Rice",
+                "price": 45000
+            },
+            {
+                "name": "Salmon Mentai Rice",
+                "price": 45000
+            }
+        ],
+        "total": 225000,
+        "time": "2026-02-02 15:26"
     }
 ]

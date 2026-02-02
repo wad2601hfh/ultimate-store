@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Store | Command Center</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="aurora-bg"></div>
+
+    <div class="container split-view">
+        <div class="glass-panel sidebar">
+            <h2 style="padding:20px; color:var(--text-main); font-weight:700;">INVENTORY</h2>
+            <div id="menu-list" style="padding:0 15px 20px 15px;"></div>
+        </div>
+
+        <div class="glass-panel">
+            <div class="chat-header">
+                <h1>LIVE FEED</h1>
+                <div class="status-badge">● MONITORING</div>
+            </div>
+            <div id="chat-stream" class="chat-stream"></div>
+            <div class="input-area">
+                <input type="text" id="msg-input" class="chat-input" placeholder="Manual Override...">
+                <button class="send-btn" onclick="sendText()">REPLY</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/seller.js"></script>
+</body>
+</html>
