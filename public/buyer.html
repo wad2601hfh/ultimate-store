@@ -2,60 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Store | AI Concierge</title>
+    <title>Smart Store | Buyer</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="aurora-bg"></div>
-
     <div class="container center-view">
         <div class="glass-panel" style="width: 100%; max-width: 700px; height: 90vh;">
             <div class="chat-header">
-                <div>
-                    <h1>SMART STORE AI</h1>
-                    <span style="font-size:0.8rem; color:#8b9bb4;">Automated Dining Concierge</span>
-                </div>
+                <div><h1>SMART STORE AI</h1><span style="font-size:0.8rem; color:#8b9bb4;">Automated Dining Concierge</span></div>
                 <div class="status-badge">● ONLINE</div>
             </div>
-
-            <div id="chat-stream" class="chat-stream">
-                <div class="msg-row system">
-                    <div class="bubble">Welcome to Smart Store. Try searching for "Spicy", "Coffee", or "Rice".</div>
-                </div>
-            </div>
-
+            <div id="chat-stream" class="chat-stream"></div>
             <div class="input-area">
                 <input type="text" id="msg-input" class="chat-input" placeholder="What are you craving?">
                 <button class="send-btn" onclick="sendText()">SEND</button>
             </div>
         </div>
     </div>
-
-    <div class="cart-fab" onclick="toggleModal(true)">
-        🛍️
-        <div id="cart-count" class="cart-count hidden">0</div>
-    </div>
-
+    <div class="cart-fab" onclick="toggleModal(true)">🛍️<div id="cart-count" class="cart-count hidden">0</div></div>
     <div id="modal" class="modal-overlay">
         <div class="checkout-card">
-            <h2 style="margin-bottom:5px; color:#fff">Quantum Checkout</h2>
-            <p style="color:#8b9bb4; font-size:0.9rem; margin-bottom:20px;">Review your selection</p>
-            
-            <div id="cart-items" style="max-height:250px; overflow-y:auto; margin-bottom:20px;">
-                </div>
-
-            <div style="display:flex; justify-content:space-between; font-size:1.2rem; font-weight:700; color:var(--neon-blue);">
-                <span>Total</span>
-                <span id="cart-total">Rp 0</span>
-            </div>
-
+            <h2 style="color:#fff">Quantum Checkout</h2>
+            <div id="cart-items" style="max-height:250px; overflow-y:auto; margin:20px 0;"></div>
+            <div style="display:flex; justify-content:space-between; font-size:1.2rem; font-weight:700; color:var(--neon-blue);"><span>Total</span><span id="cart-total">Rp 0</span></div>
             <button id="pay-btn" class="pay-btn" onclick="pay()">INITIATE TRANSFER</button>
             <button onclick="toggleModal(false)" style="width:100%; background:transparent; border:none; color:#8b9bb4; margin-top:15px; cursor:pointer;">Cancel Sequence</button>
         </div>
     </div>
-
     <script src="js/buyer.js"></script>
 </body>
 </html>

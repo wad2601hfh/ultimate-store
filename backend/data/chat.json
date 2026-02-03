@@ -2,104 +2,69 @@
     {
         "type": "text",
         "sender": "buyer",
-        "text": "spicy",
-        "time": "13:56"
+        "text": "sweet",
+        "time": "03:20"
     },
     {
         "type": "ai_hint",
         "sender": "system",
         "matches": [
             {
-                "id": "s2",
-                "name": "Mala Beef Soup",
+                "id": "bc3",
+                "name": "Matcha Frappe",
+                "price": 42000,
+                "category": "drink",
+                "tags": "matcha sweet ice",
+                "desc": "Blended green tea with whipped cream",
+                "store": "Brew & Co."
+            },
+            {
+                "id": "sr3",
+                "name": "Choco Lava",
                 "price": 38000,
-                "category": "spicy",
-                "tags": "noodle soup spicy beef",
-                "desc": "Sichuan peppercorn soup with sliced beef",
-                "store": "Spicy Node"
+                "category": "sweet",
+                "tags": "chocolate cake hot",
+                "desc": "Molten chocolate cake with vanilla ice cream",
+                "store": "Sugar Rush"
             },
             {
-                "id": "s3",
-                "name": "Squid Balado",
-                "price": 40000,
-                "category": "spicy",
-                "tags": "seafood spicy",
-                "desc": "Fresh squid cooked in red chili sauce",
-                "store": "Heritage Hub"
-            },
-            {
-                "id": "s1",
-                "name": "Spicy Fried Chicken",
-                "price": 32000,
-                "category": "spicy",
-                "tags": "chicken spicy hot chili",
-                "desc": "Crispy chicken coated in signature chili paste",
-                "store": "Spicy Node"
+                "id": "bc2",
+                "name": "Hazelnut Latte",
+                "price": 38000,
+                "category": "drink",
+                "tags": "coffee sweet milk",
+                "desc": "Espresso with steamed milk and hazelnut syrup",
+                "store": "Brew & Co."
             }
         ],
-        "trigger": "spicy",
-        "time": "13:56"
-    },
-    {
-        "type": "text",
-        "sender": "buyer",
-        "text": "king hamzah",
-        "time": "15:26"
+        "trigger": "sweet",
+        "time": "03:20"
     },
     {
         "type": "card",
         "sender": "seller",
-        "foodName": "Salmon Mentai Rice",
-        "price": 45000,
-        "desc": "Torched salmon with creamy spicy mayo sauce",
+        "foodName": "Matcha Frappe",
+        "price": 42000,
+        "desc": "Blended green tea with whipped cream",
         "store": "Concierge Pick",
-        "time": "15:26"
+        "time": "03:20"
     },
     {
-        "type": "system",
-        "sender": "system",
-        "text": "\ud83d\ude80 ORDER PAID (ORD-03526) - Rp 225,000",
-        "time": "15:26"
+        "type": "card",
+        "sender": "seller",
+        "foodName": "Choco Lava",
+        "price": 38000,
+        "desc": "Molten chocolate cake with vanilla ice cream",
+        "store": "Concierge Pick",
+        "time": "03:20"
     },
     {
-        "type": "text",
-        "sender": "buyer",
-        "text": "spicy",
-        "time": "15:26"
-    },
-    {
-        "type": "ai_hint",
-        "sender": "system",
-        "matches": [
-            {
-                "id": "s2",
-                "name": "Mala Beef Soup",
-                "price": 38000,
-                "category": "spicy",
-                "tags": "noodle soup spicy beef",
-                "desc": "Sichuan peppercorn soup with sliced beef",
-                "store": "Spicy Node"
-            },
-            {
-                "id": "r2",
-                "name": "Beef Rendang Platter",
-                "price": 48000,
-                "category": "rice",
-                "tags": "beef savory rice spicy",
-                "desc": "Slow-cooked tender beef with cassava leaves and green chili",
-                "store": "Heritage Hub"
-            },
-            {
-                "id": "s3",
-                "name": "Squid Balado",
-                "price": 40000,
-                "category": "spicy",
-                "tags": "seafood spicy",
-                "desc": "Fresh squid cooked in red chili sauce",
-                "store": "Heritage Hub"
-            }
-        ],
-        "trigger": "spicy",
-        "time": "15:26"
+        "type": "card",
+        "sender": "seller",
+        "foodName": "Hazelnut Latte",
+        "price": 38000,
+        "desc": "Espresso with steamed milk and hazelnut syrup",
+        "store": "Concierge Pick",
+        "time": "03:20"
     }
 ]

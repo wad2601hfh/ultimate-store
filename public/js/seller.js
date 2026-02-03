@@ -1,30 +1,37 @@
 const stream = document.getElementById('chat-stream');
-let lastRenderedIndex = 0; // Fixed: Tracking index
+let lastRenderedIndex = 0;
+let isInitialLoad = true;
 
+// Init
 loadMenu();
 setInterval(poll, 1500);
 
-// Load Sidebar Menu
+// 1. SIDEBAR MENU GROUPED BY STORE
 async function loadMenu() {
     const res = await fetch('../backend/api/chat.php', { method: 'POST', body: JSON.stringify({ action: 'get_menu' }) });
     const data = await res.json();
     const list = document.getElementById('menu-list');
     
-    const groups = {};
-    data.menu.forEach(i => { if (!groups[i.category]) groups[i.category] = []; groups[i.category].push(i); });
+    // Grouping
+    const stores = {};
+    data.menu.forEach(i => { 
+        if (!stores[i.store]) stores[i.store] = []; 
+        stores[i.store].push(i); 
+    });
 
-    for (const [cat, items] of Object.entries(groups)) {
+    for (const [storeName, items] of Object.entries(stores)) {
         const title = document.createElement('div');
         title.className = 'cat-title';
-        title.innerText = cat;
+        title.innerText = `🏪 ${storeName}`;
         list.appendChild(title);
+
         items.forEach(item => {
             const row = document.createElement('div');
             row.className = 'menu-item';
             row.innerHTML = `
                 <div>
                     <strong style="color:#fff; font-size:0.9rem">${item.name}</strong><br>
-                    <small style="color:#666">${item.store}</small>
+                    <small style="color:#666">Rp ${item.price.toLocaleString()}</small>
                 </div>
                 <button class="push-btn" onclick="push('${item.name}', ${item.price}, '${item.desc}')">PUSH</button>
             `;
@@ -33,29 +40,28 @@ async function loadMenu() {
     }
 }
 
+// 2. POLLING
 async function poll() {
     const res = await fetch('../backend/api/chat.php', { method: 'POST', body: JSON.stringify({ action: 'poll' }) });
     const data = await res.json();
     
-    // Fixed: Only append new messages
     if (data.messages.length > lastRenderedIndex) {
         const newMessages = data.messages.slice(lastRenderedIndex);
         renderAppend(newMessages);
         lastRenderedIndex = data.messages.length;
+        isInitialLoad = false;
     }
 }
 
 function renderAppend(messages) {
     messages.forEach(msg => {
         const row = document.createElement('div');
-        // Fixed: Add 'new-message' class
-        row.className = `msg-row ${msg.sender} new-message`; 
+        const animationClass = isInitialLoad ? '' : 'new-message';
+        row.className = `msg-row ${msg.sender} ${animationClass}`;
         
-        // 1. STANDARD TEXT
         if (msg.type === 'text' || msg.type === 'system') {
             row.innerHTML = `<div class="bubble">${msg.text}</div>`;
         } 
-        // 2. PUBLIC CARD (Visible to both)
         else if (msg.type === 'card') {
             row.innerHTML = `
                 <div class="card" style="opacity:0.7; transform:scale(0.9)">
@@ -64,9 +70,9 @@ function renderAppend(messages) {
                     <span class="card-price">Rp ${parseInt(msg.price).toLocaleString()}</span>
                 </div>`;
         } 
-        // 3. GHOST AI HINT (VISIBLE ONLY TO SELLER)
+        // RENDER GHOST AI BOX
         else if (msg.type === 'ai_hint') {
-            row.className = 'msg-row system new-message'; // Center align
+            row.className = `msg-row system ${animationClass}`;
             
             let suggestionsHTML = '';
             msg.matches.forEach(m => {
@@ -84,37 +90,35 @@ function renderAppend(messages) {
                     <div style="color:var(--neon-green); font-size:0.7rem; margin-bottom:10px; font-weight:bold; letter-spacing:1px;">
                         ⚡ AI DETECTED INTENT: "${msg.trigger}"
                     </div>
-                    <div class="suggestion-grid">
-                        ${suggestionsHTML}
-                    </div>
-                </div>
-            `;
+                    <div class="suggestion-grid">${suggestionsHTML}</div>
+                </div>`;
         }
         stream.appendChild(row);
     });
-    // Smooth Scroll
-    stream.scrollTo({ top: stream.scrollHeight, behavior: 'smooth' });
+
+    if (isInitialLoad) stream.scrollTop = stream.scrollHeight;
+    else stream.scrollTo({ top: stream.scrollHeight, behavior: 'smooth' });
 }
 
+// 3. SENDING (FIXED: No double messages)
 async function sendText() {
     const input = document.getElementById('msg-input');
     const text = input.value.trim();
     if (!text) return;
-    input.value = '';
     
-    // Optimistic UI
-    const tempDiv = document.createElement('div');
-    tempDiv.className = 'msg-row seller new-message';
-    tempDiv.innerHTML = `<div class="bubble">${text}</div>`;
-    stream.appendChild(tempDiv);
-    stream.scrollTo({ top: stream.scrollHeight, behavior: 'smooth' });
+    // Clear Input
+    input.value = '';
 
+    // Send to backend
     await fetch('../backend/api/chat.php', { method: 'POST', body: JSON.stringify({ action: 'send_text', sender: 'seller', text }) });
+    
+    // Force Update
+    poll();
 }
 
 async function push(name, price, desc) {
     await fetch('../backend/api/chat.php', { method: 'POST', body: JSON.stringify({ action: 'send_card', foodName: name, price, desc }) });
-    // No manual poll needed, interval handles it
+    poll();
 }
 
 document.getElementById('msg-input').addEventListener('keypress', (e) => { if(e.key==='Enter') sendText(); });

@@ -131,7 +131,7 @@ body {
     scroll-behavior: smooth; 
 }
 
-/* Message Bubbles - FIXED ANIMATION */
+/* --- MESSAGE BUBBLES & ANIMATION FIX --- */
 .msg-row { 
     display: flex; 
     width: 100%; 
@@ -140,7 +140,7 @@ body {
     margin-bottom: 2px;
 }
 
-/* Only animate NEW messages */
+/* Only animate if JS specifically adds this class */
 .msg-row.new-message {
     animation: fadeUp 0.3s ease forwards;
     opacity: 0;

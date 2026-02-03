@@ -1,22 +1,25 @@
 [
-    { "id": "r1", "name": "Nasi Goreng Special", "price": 28000, "category": "rice", "tags": "rice spicy fried chicken", "desc": "Classic Indonesian fried rice with egg and chicken satay", "store": "Fusion Byte" },
-    { "id": "r2", "name": "Beef Rendang Platter", "price": 48000, "category": "rice", "tags": "beef savory rice spicy", "desc": "Slow-cooked tender beef with cassava leaves and green chili", "store": "Heritage Hub" },
-    { "id": "r3", "name": "Chicken Teriyaki Bowl", "price": 35000, "category": "rice", "tags": "chicken japanese rice sweet", "desc": "Grilled chicken thigh with sweet soy glaze", "store": "Zenith Kitchen" },
-    { "id": "r4", "name": "Salmon Mentai Rice", "price": 45000, "category": "rice", "tags": "fish savory japanese creamy", "desc": "Torched salmon with creamy spicy mayo sauce", "store": "Zenith Kitchen" },
-    
-    { "id": "s1", "name": "Spicy Fried Chicken", "price": 32000, "category": "spicy", "tags": "chicken spicy hot chili", "desc": "Crispy chicken coated in signature chili paste", "store": "Spicy Node" },
-    { "id": "s2", "name": "Mala Beef Soup", "price": 38000, "category": "spicy", "tags": "noodle soup spicy beef", "desc": "Sichuan peppercorn soup with sliced beef", "store": "Spicy Node" },
-    { "id": "s3", "name": "Squid Balado", "price": 40000, "category": "spicy", "tags": "seafood spicy", "desc": "Fresh squid cooked in red chili sauce", "store": "Heritage Hub" },
-    
-    { "id": "d1", "name": "Iced Matcha Latte", "price": 28000, "category": "drink", "tags": "matcha milk sweet", "desc": "Pure green tea with fresh milk", "store": "Liquid Lab" },
-    { "id": "d2", "name": "Fresh Lemonade", "price": 25000, "category": "drink", "tags": "sour fresh soda fruit", "desc": "Squeezed lemon with sparkling water", "store": "Liquid Lab" },
-    { "id": "d3", "name": "Cold Brew Coffee", "price": 35000, "category": "drink", "tags": "coffee bitter smooth", "desc": "12-hour steeped black coffee", "store": "Caffeine Core" },
-    { "id": "d4", "name": "Vanilla Milkshake", "price": 38000, "category": "drink", "tags": "sweet milk shake", "desc": "Thick creamy shake with vanilla bean", "store": "Liquid Lab" },
+    { "id": "mk1", "name": "Nasi Goreng Kampung", "price": 25000, "category": "rice", "tags": "rice spicy traditional", "desc": "Traditional fried rice with anchovies", "store": "Mama's Kitchen" },
+    { "id": "mk2", "name": "Sop Buntut", "price": 65000, "category": "soup", "tags": "beef soup savory", "desc": "Rich oxtail soup with carrots and potatoes", "store": "Mama's Kitchen" },
+    { "id": "mk3", "name": "Ayam Goreng Lengkuas", "price": 28000, "category": "rice", "tags": "chicken savory fried", "desc": "Fried chicken with crispy galangal flakes", "store": "Mama's Kitchen" },
+    { "id": "mk4", "name": "Sayur Asem", "price": 15000, "category": "soup", "tags": "soup sour veg", "desc": "Sweet and sour tamarind vegetable soup", "store": "Mama's Kitchen" },
 
-    { "id": "sw1", "name": "Fluffy Pancakes", "price": 45000, "category": "sweet", "tags": "cake fluffy sweet", "desc": "Japanese style souffle pancakes with syrup", "store": "Sweet Byte" },
-    { "id": "sw2", "name": "Chocolate Lava Cake", "price": 35000, "category": "sweet", "tags": "chocolate cake dessert", "desc": "Warm chocolate cake with molten center", "store": "Sweet Byte" },
-    { "id": "sw3", "name": "Strawberry Mochi", "price": 22000, "category": "sweet", "tags": "japanese dessert", "desc": "Chewy rice cake filled with fresh strawberry", "store": "Zenith Kitchen" },
+    { "id": "wm1", "name": "Beef Black Pepper", "price": 45000, "category": "rice", "tags": "beef spicy chinese", "desc": "Stir-fried beef with onions and black pepper sauce", "store": "Wok Master" },
+    { "id": "wm2", "name": "Kung Pao Chicken", "price": 38000, "category": "rice", "tags": "chicken spicy nuts", "desc": "Diced chicken with dried chili and peanuts", "store": "Wok Master" },
+    { "id": "wm3", "name": "Seafood Kwetiau", "price": 40000, "category": "noodle", "tags": "noodle seafood savory", "desc": "Flat rice noodles stir-fried with shrimp and squid", "store": "Wok Master" },
+    { "id": "wm4", "name": "Dimsum Platter", "price": 35000, "category": "snack", "tags": "dumpling chicken savory", "desc": "Mix of shumai, hakau, and nori rolls", "store": "Wok Master" },
 
-    { "id": "sn1", "name": "Truffle Fries", "price": 32000, "category": "snack", "tags": "potato savory western", "desc": "Shoestring fries with parmesan and truffle oil", "store": "Fusion Byte" },
-    { "id": "sn2", "name": "Chicken Gyoza", "price": 28000, "category": "snack", "tags": "dumpling savory chicken", "desc": "Pan-fried dumplings with soy vinegar", "store": "Zenith Kitchen" }
+    { "id": "bc1", "name": "Signature Cold Brew", "price": 35000, "category": "drink", "tags": "coffee bitter cold", "desc": "Steeped for 18 hours, smooth and bold", "store": "Brew & Co." },
+    { "id": "bc2", "name": "Hazelnut Latte", "price": 38000, "category": "drink", "tags": "coffee sweet milk", "desc": "Espresso with steamed milk and hazelnut syrup", "store": "Brew & Co." },
+    { "id": "bc3", "name": "Matcha Frappe", "price": 42000, "category": "drink", "tags": "matcha sweet ice", "desc": "Blended green tea with whipped cream", "store": "Brew & Co." },
+    { "id": "bc4", "name": "Butter Croissant", "price": 22000, "category": "snack", "tags": "pastry savory butter", "desc": "Flaky french pastry", "store": "Brew & Co." },
+
+    { "id": "sr1", "name": "Red Velvet Cake", "price": 35000, "category": "sweet", "tags": "cake sweet dessert", "desc": "Layered cake with cream cheese frosting", "store": "Sugar Rush" },
+    { "id": "sr2", "name": "Belgian Waffle", "price": 30000, "category": "sweet", "tags": "sweet pancake", "desc": "Crispy waffle with maple syrup and butter", "store": "Sugar Rush" },
+    { "id": "sr3", "name": "Choco Lava", "price": 38000, "category": "sweet", "tags": "chocolate cake hot", "desc": "Molten chocolate cake with vanilla ice cream", "store": "Sugar Rush" },
+    { "id": "sr4", "name": "Berry Smoothie", "price": 40000, "category": "drink", "tags": "fruit cold healthy", "desc": "Blend of strawberry, blueberry, and yogurt", "store": "Sugar Rush" },
+
+    { "id": "sp1", "name": "Fire Wings (6pcs)", "price": 35000, "category": "spicy", "tags": "chicken spicy hot", "desc": "Chicken wings tossed in ghost pepper sauce", "store": "Spice Bazaar" },
+    { "id": "sp2", "name": "Nasi Gila Pedas", "price": 28000, "category": "rice", "tags": "rice spicy sausage", "desc": "Rice topped with spicy stir-fry sausage and meatballs", "store": "Spice Bazaar" },
+    { "id": "sp3", "name": "Mie Setan", "price": 20000, "category": "noodle", "tags": "noodle spicy chili", "desc": "Noodles with level 1-5 chili heat", "store": "Spice Bazaar" }
 ]
